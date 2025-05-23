@@ -1,0 +1,247 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Tabela principal */
+table {
+  width: 80%;
+  max-width: 900px;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+  background-color: #dbeafe;
+  color: #1e3a8a;
+}
+
+th {
+  position: relative;
+  user-select: none;
+}
+
+th .seta {
+  font-size: 0.8rem;
+  margin-left: 5px;
+  color: #007bff;
+  transition: color 0.3s;
+}
+
+th:hover .seta {
+  color: #0056b3;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+  background-color: #e0f2fe;
+}
+
+/* Painel inferior */
+.painel-inferior {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
+.tabela-pontuacao {
+  width: 250px;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.tabela-pontuacao th {
+  background-color: #8bc34a;
+  color: #000;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.tabela-pontuacao td {
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.regras {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 1rem;
+  border-left: 4px solid #007bff;
+  border-radius: 4px;
+}
+
+/* Prémios */
+.premios {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  background: #fdfdfd;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.premios strong {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.premios p {
+  margin: 0.4rem 0;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Layout com patrocinadores */
+.layout-com-patrocinadores {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* Força a altura das colunas dos patrocinadores a igualar a da tabela */
+.tabela-principal {
+  height: auto; /* Deixa a altura ser natural */
+}
+
+/* 🧱 Patrocinadores à altura da tabela */
+.patrocinadores {
+  width: 80%;
+  height: 100%; /* assume a altura do pai */
+  max-height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* 🧱 Wrapper permite começar mais abaixo */
+.slide-wrapper {
+  position: relative;
+  top: 0; /* opcional, remove se quiser começar do topo exato */
+  height: 100%;
+}
+
+/* 🎞️ A animação agora percorre 100% da altura visível */
+.slide-track {
+  display: flex;
+  flex-direction: column;
+  animation: scroll-vertical 15s linear infinite;
+}
+
+/* Estilo das imagens */
+.slide-track a,
+.slide-track img {
+  display: block;
+  margin-bottom: 1.5rem;
+  width: 150px;
+  height: auto;
+  opacity: 0.95;
+  transition: transform 0.3s;
+}
+
+.slide-track img:hover {
+  transform: scale(1.1);
+}
+
+/* 🎬 Animação suave que percorre a altura total */
+@keyframes scroll-vertical {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .patrocinadores {
+    display: none;
+  }
+
+  .layout-com-patrocinadores {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.header-peladinha {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-header {
+  width: 150px;
+  height: auto;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.titulo-peladinha {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  font-family: 'Segoe UI', sans-serif;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+
+.titulo-peladinha span {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-top: 0.3rem;
+  color: #007bff;
+  letter-spacing: 0.5px;
+}
+
+.subtitulo-header {
+  font-size: 1rem;
+  color: #444;
+  margin-top: 0;
+  font-style: italic;
+}
+
+.linha-decorativa {
+  width: 100px;
+  height: 4px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 2px;
+  margin-top: 0.5rem;
+}
